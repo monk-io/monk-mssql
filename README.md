@@ -1,5 +1,5 @@
-# Hadoop & Monk
-This repository contains Monk.io template to deploy Hadoop either locally or on cloud of your choice (AWS, GCP, Azure, Digital Ocean).
+# MSSQL & Monk
+This repository contains Monk.io template to deploy MSSQL either locally or on cloud of your choice (AWS, GCP, Azure, Digital Ocean).
 
 # Prerequisites
 - [Install Monk](https://docs.monk.io/docs/get-monk)
@@ -17,12 +17,12 @@ not connected to cluster
 
 ## Clone Repository
 ```bash
-git clone https://github.com/Burakhan/monk-hadoop
+git clone https://github.com/Burakhan/monk-mssql
 ```
 
 ## Load Template
 ```bash
-cd monk-hadoop
+cd monk-mssql
 monk load MANIFEST
 ```
 

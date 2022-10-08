@@ -1,0 +1,27 @@
+namespace: monk-mssql
+
+mssql:
+  defines: runnable
+  variables:
+    monk_mssql_port:
+      env: MSSQL_PORT
+      type: int
+      value: <- `${mssql_port}`
+    monk_mssql_accept_eula:
+      env: ACCEPT_EULA
+      type: string
+      value: Y
+    monk_mssql_sa_password:
+      env: SA_PASSWORD
+      type: string
+      value: <- `${mssql_password}`
+    volume_local:
+      type: string
+      value: <- `${monk-volume-path}/monk-mssql`
+  containers:
+    monk-mssql:
+      image: 'mcr.microsoft.com/mssql/server'
+      ports:
+        - <- `0.0.0.0:${mssql_port}:1433`
+      paths:
+        - <- `${volume_local}:/var/opt/mssql`

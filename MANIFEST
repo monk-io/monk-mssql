@@ -1,0 +1,2 @@
+REPO mssql
+LOAD mssql.yml stack.yml
