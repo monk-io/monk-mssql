@@ -1,6 +1,13 @@
 namespace: monk-mssql
 
 mssql:
+  metadata:
+    defines: metadata
+    name: MSSQL
+    description: Transform your business with a unified data platform. SQL Server 2019 comes with Apache Spark and Hadoop Distributed File System (HDFS) for intelligence over all your data.
+    website: https://www.microsoft.com/en-us/sql-server/
+    publisher: monk.io
+    icon: mssql.png 
   defines: runnable
   variables:
     monk_mssql_port:
