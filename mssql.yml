@@ -32,3 +32,9 @@ mssql:
         - <- `0.0.0.0:${mssql_port}:1433`
       paths:
         - <- `${volume_local}:/var/opt/mssql`
+  services:
+    mssql-svc:
+      port: 1433
+      container: monk-mssql
+      protocol: tcp
+      host-port: <- `${mssql_port}`
