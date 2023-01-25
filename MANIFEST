@@ -1,3 +1,2 @@
 REPO mssql
 LOAD mssql.yml stack.yml
-RESOURCES node1.json 
