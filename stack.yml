@@ -1,9 +1,9 @@
-namespace: monk-mssql
+namespace: mssql
 
 stack:
   defines: process-group
   runnable-list:
-    - monk-mssql/mssql
+    - mssql/mssql
   variables:
     mssql_password:
       type: string
