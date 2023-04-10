@@ -1,14 +1,28 @@
+---
 namespace: mssql
-
-mssql:
+base:
   metadata:
     defines: metadata
     name: MSSQL
-    description: Transform your business with a unified data platform. SQL Server 2019 comes with Apache Spark and Hadoop Distributed File System (HDFS) for intelligence over all your data.
+    description: |
+      Microsoft SQL Server (MS SQL) is a relational database management system (RDBMS) developed by Microsoft. It is a powerful and scalable database system that is widely used in a variety of industries, including finance, healthcare, and government.
+
+      MS SQL provides a wide range of features for data storage, retrieval, and analysis. It includes support for SQL queries, transactions, and stored procedures, making it easy for developers to build applications that require complex data operations.
+
+      MS SQL supports both on-premises and cloud-based deployment options. It provides a variety of tools for database administration, monitoring, and backup and recovery, making it easy to manage and maintain the database.
+
+      MS SQL also includes a variety of features for business intelligence (BI) and analytics, including data warehousing, data mining, and data visualization. It includes support for reporting and analytics tools such as Microsoft Power BI, allowing users to create customized reports and dashboards based on their data.
+
+      MS SQL is compatible with a wide range of programming languages and platforms, including .NET, Java, Python, and Node.js. It also includes support for a variety of data types, including structured, semi-structured, and unstructured data.
     website: https://www.microsoft.com/en-us/sql-server/
     publisher: monk.io
-    icon: mssql.png 
+    icon: https://cdn-icons-png.flaticon.com/512/5968/5968364.png
+  containers:
+    mssql:
+      image: mcr.microsoft.com/mssql/server
+db:
   defines: runnable
+  inherits: mssql/base
   variables:
     monk_mssql_port:
       env: MSSQL_PORT
@@ -22,16 +36,6 @@ mssql:
       env: SA_PASSWORD
       type: string
       value: <- `${mssql_password}`
-    volume_local:
-      type: string
-      value: <- `${monk-volume-path}/mssql`
-  containers:
-    mssql:
-      image: 'mcr.microsoft.com/mssql/server'
-      ports:
-        - <- `0.0.0.0:${mssql_port}:1433`
-      paths:
-        - <- `${volume_local}:/var/opt/mssql`
   services:
     mssql-svc:
       port: 1433

@@ -1,5 +1,5 @@
+---
 namespace: mssql
-
 stack:
   defines: process-group
   runnable-list:
@@ -7,7 +7,7 @@ stack:
   variables:
     mssql_password:
       type: string
-      value: "P@ssw0rd"
+      value: P@ssw0rd
     mssql_port:
       type: int
       value: 1433
