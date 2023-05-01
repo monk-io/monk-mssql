@@ -24,10 +24,6 @@ db:
   defines: runnable
   inherits: mssql/base
   variables:
-    monk_mssql_port:
-      env: MSSQL_PORT
-      type: int
-      value: <- `${mssql_port}`
     monk_mssql_accept_eula:
       env: ACCEPT_EULA
       type: string
@@ -35,10 +31,9 @@ db:
     monk_mssql_sa_password:
       env: SA_PASSWORD
       type: string
-      value: <- `${mssql_password}`
+      value: P@ssw0rd
   services:
     mssql-svc:
       port: 1433
       container: mssql
       protocol: tcp
-      host-port: <- `${mssql_port}`
