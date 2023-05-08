@@ -1,6 +1,0 @@
----
-namespace: mssql
-stack:
-  defines: process-group
-  runnable-list:
-    - mssql/mssql

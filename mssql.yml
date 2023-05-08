@@ -1,8 +1,9 @@
 ---
 namespace: mssql
+
 base:
+  defines: runnable
   metadata:
-    defines: metadata
     name: MSSQL
     description: |
       Microsoft SQL Server (MS SQL) is a relational database management system (RDBMS) developed by Microsoft. It is a powerful and scalable database system that is widely used in a variety of industries, including finance, healthcare, and government.
@@ -14,15 +15,22 @@ base:
       MS SQL also includes a variety of features for business intelligence (BI) and analytics, including data warehousing, data mining, and data visualization. It includes support for reporting and analytics tools such as Microsoft Power BI, allowing users to create customized reports and dashboards based on their data.
 
       MS SQL is compatible with a wide range of programming languages and platforms, including .NET, Java, Python, and Node.js. It also includes support for a variety of data types, including structured, semi-structured, and unstructured data.
+
+      ---
+
+      Notes:
+
+      Default SA password is: P@ssw0rd
     website: https://www.microsoft.com/en-us/sql-server/
     publisher: monk.io
     icon: https://cdn-icons-png.flaticon.com/512/5968/5968364.png
+    source: https://github.com/microsoft/mssql-docker
+    tags: MS SQL, Database Management, Relational Database, Business Intelligence, Data Warehousing, Cloud Computing, Query Language, Transact-SQL (T-SQL), Stored Procedures, Triggers, Views, Indexes, ACID Compliance, High Availability, Data Replication, Data Security, Performance Tuning, OLAP, Data Mining, ETL
+    private: true
   containers:
     mssql:
       image: mcr.microsoft.com/mssql/server
-db:
-  defines: runnable
-  inherits: mssql/base
+      image-tag: latest
   variables:
     monk_mssql_accept_eula:
       env: ACCEPT_EULA
@@ -32,8 +40,19 @@ db:
       env: SA_PASSWORD
       type: string
       value: P@ssw0rd
+
+db:
+  defines: runnable
+  inherits: mssql/base
+  metadata:
+    private: false
   services:
     mssql-svc:
       port: 1433
       container: mssql
       protocol: tcp
+      host-port: 1433
+  containers:
+    mssql:
+      paths:
+        - <- `${monk-volume-path}/mssql:/var/opt/mssql`
