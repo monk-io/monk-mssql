@@ -25,7 +25,7 @@ base:
     publisher: monk.io
     icon: https://cdn-icons-png.flaticon.com/512/5968/5968364.png
     source: https://github.com/microsoft/mssql-docker
-    tags: MS SQL, Database Management, Relational Database, Business Intelligence, Data Warehousing, Cloud Computing, Query Language, Transact-SQL (T-SQL), Stored Procedures, Triggers, Views, Indexes, ACID Compliance, High Availability, Data Replication, Data Security, Performance Tuning, OLAP, Data Mining, ETL
+    tags: triggers, views, transact-sql, data security, acid compliance, data warehousing, business intelligence, database management, olap, performance tuning, relational database, high availability, ms sql, data mining, data replication, query language, etl, indexes, stored procedures
     private: true
   containers:
     mssql:
